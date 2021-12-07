@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tic-tac-toe</title>
+</head>
+
+<body>
+    <script>
+        var currentvalue = "x"
+        var mainbox = document.createElement("div")
+        mainbox.style.width = "300px";
+        mainbox.style.height = "300px";
+        mainbox.style.backgroundColor = "pink";
+        mainbox.style.margin = "20px";
+        mainbox.style.display = "flex"
+        mainbox.style.flexDirection = "row"
+        mainbox.style.flexWrap = "wrap"
+        mainbox.style.border = "3px solid black";
+        // document.body.appendChild(mainbox)
+
+        for (index = 0; index < 9; index++) {
+            var smallbox = document.createElement("div")
+            smallbox.style.width = "98px"
+            smallbox.style.height = "98px"
+            smallbox.style.display = "flex"
+            smallbox.style.color = "black"
+            smallbox.style.flexWrap = "wrap"
+            smallbox.style.flexDirection = "row"
+            smallbox.style.border = "1px solid black"
+            smallbox.setAttribute("id", "index")
+            // mainbox.appendChild(smallbox)
+
+            smallbox.addEventListener("click", myfunction);
+
+            function myfunction() {
+                if (this.innerText == 0) {
+                    if (currentvalue === "x") {
+                        this.innerText = currentvalue;
+                        currentvalue = "o"
+                    }
+                    else {
+                        this.innerText = currentvalue;
+                        currentvalue = "x";
+                    }
+                }
+            }
+            mainbox.appendChild(smallbox)
+        }
+        document.body.appendChild(mainbox);
+    </script>
+</body>
+
+</html>
